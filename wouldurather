@@ -1,0 +1,13 @@
+udacity project2 logger
+
+drawed all page ui
+anlyse the date model
+
+design shape of state and  create reducer
+  users  {autheredUser,list[]}  CHANGE  ADD_ANWSERED_QUESTION
+    questions ADD
+     
+    
+create app starter code use 
+npx create-react-app
+

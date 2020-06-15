@@ -1,0 +1,128 @@
+complementary colors appear more vibrant and produce a strong visual contrast.
+
+  Mixing two primary colors creates the secondary colorscyan (G + B), magenta (R + B) and yellow (R + G).
+magenta is made with red and blue, and is the complement to green.
+
+tertiary colors are the result of combining a primary color with one of its secondary color neighbors. For example, within the RGB color model, red (primary) and yellow (secondary) make orange (tertiary). This adds six more colors to a simple color wheel for a total of twelve.
+
+ split-complementary color scheme. This scheme starts with a base color, then pairs it with the two colors that are adjacent to its complement
+ 
+ cyan (G + B), magenta (R + B) and yellow (R + G).
+ 
+ hsl(120,100%,50%);
+ Hue is what people generally think of as 'color'.
+ Saturation is the amount of gray in a color. A fully saturated color has no gray in it, and a minimally saturated color is almost completely gray. This is given as a percentage with 100% being fully saturated.
+ Lightness is the amount of white or black in a color. A percentage is given ranging from 0% (black) to 100% (white), where 50% is the normal color.
+ A shade of a particular colour is one of its different forms. For example, emerald green and olive green are shades of green. 色调 ;A tone is one of the lighter, darker, or brighter shades of the same colour.
+ The hsl() option in CSS also makes it easy to adjust the tone of a color. Mixing white with a pure hue creates a tint of that color, and adding black will make a shade
+ 
+ linear-gradient(35deg, #CCFFFF,#FFCCCC);
+ repeating-linear-gradient(
+      45deg,
+      yellow 0px,
+      yellow 40px,
+      black 40px,
+      black 80px
+    );
+  }
+  
+  body{
+  background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592017097156&di=0124148b67236f41aabdc0c8b90f0133&imgtype=0&src=http%3A%2F%2Fwow.tgbus.com%2FUploadFiles_2396%2F201508%2F20150803135723855.JPG");
+}
+
+transform: scale(1.5);
+
+div:hover{
+    transform: scale(1.1);
+    transform: skewX(-32deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

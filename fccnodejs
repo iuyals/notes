@@ -1,0 +1,72 @@
+in packge.json
+
+{
+    "version": "1.0",
+    "license": "MIT",
+    "keywords": ["test","learning","freecodecamp"],
+    "description": "for nodejs learning",
+	"author": "cyl",
+	"name": "fcc-learn-npm-package-json",
+	"dependencies": {
+		"express": "^4.14.0"
+}
+caret ^ means 4.x.x,~means 4.14.x
+
+//myapp.js
+var express = require('express');
+var app = express();
+
+app.get('/',(req,res)=>res.send("Hello Express"))
+
+npm install nodemon -g
+then use nodemon to replace node to watch file change and restart server
+
+//handle /name?first=c&last=yl
+app.get('/name',
+        (req,res)=>res.json({name: req.query.first+' '+req.query.last})
+)
+
+//handle /name/c/yl
+app.get('/:word/echo',
+ (req,res)=>res.json({echo:req.params.word})
+);
+
+//middleware add time property to req
+app.get('/now',
+        (req, res, next) => {
+            req.time = new Date().toString();
+            console.log(req.time)
+            next();
+        },
+        (req, res) => res.json({ "time": req.time})
+
+//middle ware add logger to * router,need put it above all router
+function logger(req, res, next) {
+    console.log(req.method, req.path, '-', req.ip);
+    next();
+}
+app.use(logger);
+
+)
+var bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
+app.post('/name',(req,res)=>{
+    return res.json(req.body);  //req.body avialable after app.use(bodyParser.urlencoded)
+})
+route: POST '/library'
+urlencoded_body: userId=546&bookId=6754
+req.body: {userId: '546', bookId: '6754'}
+
+mongodb
+mongodb+srv://cyl:<220807cy>@cluster0-edcka.azure.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+mongoose.connect(<Your URI>, { useNewUrlParser: true, useUnifiedTopology: true }); 
+
+const personSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  age: Number,
+  favoriteFoods: [String]
+});
+
+const Person = mongoose.model("Person", personSchema);
+

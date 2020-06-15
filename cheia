@@ -1,0 +1,120 @@
+go eclipse chai website
+
+using nodejs build or docker 
+
+
+ssh -i "webidetokyo.pem" root@ec2-13-231-217-238.ap-northeast-1.compute.amazonaws.com
+
+install nvm and nodejs10
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+nvm install 10
+npm install -g yarn
+
+make new dir theia
+
+Create package.json in this directory:
+
+{
+  "private": true,
+  "dependencies": {
+    "@theia/callhierarchy": "next",
+    "@theia/file-search": "next",
+    "@theia/git": "next",
+    "@theia/json": "next",
+    "@theia/markers": "next",
+    "@theia/messages": "next",
+    "@theia/mini-browser": "next",
+    "@theia/navigator": "next",
+    "@theia/outline-view": "next",
+    "@theia/plugin-ext-vscode": "next",
+    "@theia/preferences": "next",
+    "@theia/preview": "next",
+    "@theia/search-in-workspace": "next",
+    "@theia/terminal": "next"
+  },
+  "devDependencies": {
+    "@theia/cli": "next"
+  }
+}
+this json will support vscode ex
+{
+  "private": true,
+  "dependencies": {
+    "@theia/callhierarchy": "next",
+    "@theia/file-search": "next",
+    "@theia/git": "next",
+    "@theia/json": "next",
+    "@theia/markers": "next",
+    "@theia/messages": "next",
+    "@theia/mini-browser": "next",
+    "@theia/navigator": "next",
+    "@theia/outline-view": "next",
+    "@theia/plugin-ext-vscode": "next",
+    "@theia/preferences": "next",
+    "@theia/preview": "next",
+    "@theia/search-in-workspace": "next",
+    "@theia/terminal": "next"
+  },
+  "devDependencies": {
+    "@theia/cli": "next"
+  },
+  "scripts": {
+    "prepare": "yarn run clean && yarn build && yarn run download:plugins",
+    "clean": "theia clean",
+    "build": "theia build --mode development",
+    "start": "theia start --plugins=local-dir:plugins",
+    "download:plugins": "theia download:plugins"
+  },
+  "theiaPluginsDir": "plugins",
+  "theiaPlugins": {
+    "vscode-builtin-css": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/css-1.39.1-prel.vsix",
+    "vscode-builtin-html": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/html-1.39.1-prel.vsix",
+    "vscode-builtin-javascript": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/javascript-1.39.1-prel.vsix",
+    "vscode-builtin-json": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/json-1.39.1-prel.vsix",
+    "vscode-builtin-markdown": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/markdown-1.39.1-prel.vsix",
+    "vscode-builtin-npm": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/npm-1.39.1-prel.vsix",
+    "vscode-builtin-scss": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/scss-1.39.1-prel.vsix",
+    "vscode-builtin-typescript": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/typescript-1.39.1-prel.vsix",
+    "vscode-builtin-typescript-language-features": "https://github.com/theia-ide/vscode-builtin-extensions/releases/download/v1.39.1-prel/typescript-language-features-1.39.1-prel.vsix"
+  }
+}
+
+make python3 default
+update-alternatives --install /usr/bin/python python /usr/bin/python3 10
+
+First, install all dependencies.
+yarn
+Second, use Theia CLI to build the application.
+yarn theia build
+
+start theia
+yarn start /my-workspace --hostname 0.0.0.0 --port 8080
+
+
+******************************
+install docker
+
+ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+    
+    curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+    
+    sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/debian \
+   $(lsb_release -cs) \
+   stable"
+    
+ sudo apt-get update
+ $ sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
+ sudo docker run hello-world
+ 
+ sudo docker run -it --init -p 3000:3000 -v "$(pwd):/home/project:cached" theiaide/theia-full:next
+ docker run -it --init -p 3000:3000 --expose 9229 -p 9229:9229 -v "$(pwd):/home/project:cached" theiaide/theia:next --inspect=0.0.0.0:9229
+
+    
+    
